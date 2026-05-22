@@ -82,17 +82,20 @@ app.use(errorHandler);
 // 6. Bind Socket.io Event logic
 socketHandler(io);
 
-// 7. Boot HTTP Server listening on PORT
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`
-  ======================================================
-  🚀 SMART_X Advanced Express Backend Server Online!
-  🌍 Port: http://localhost:${PORT}/
-  🛡️ Security Layers: Active (Helmet, CORS, Rate limits)
-  🔌 Socket.io Channels: Operational
-  ======================================================
-  `);
-});
+// 7. Boot HTTP Server listening on PORT (skip when running on Vercel)
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 5000;
+  server.listen(PORT, () => {
+    console.log(`
+    ======================================================
+    🚀 SMART_X Advanced Express Backend Server Online!
+    🌍 Port: http://localhost:${PORT}/
+    🛡️ Security Layers: Active (Helmet, CORS, Rate limits)
+    🔌 Socket.io Channels: Operational
+    ======================================================
+    `);
+  });
+}
 
 export { app, server };
+export default app;

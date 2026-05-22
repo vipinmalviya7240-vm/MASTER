@@ -1,6 +1,6 @@
 import { auth } from '../firebase/config';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 const BYPASS_TOKEN = 'mock-jwt-token-xyz';
 
 // Central API fetch helper that handles request execution and falls back gracefully
