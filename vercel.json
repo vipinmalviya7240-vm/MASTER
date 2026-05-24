@@ -1,0 +1,15 @@
+{
+  "installCommand": "npm install",
+  "experimentalServices": {
+    "frontend": {
+      "entrypoint": ".",
+      "routePrefix": "/",
+      "framework": "vite"
+    },
+    "backend": {
+      "entrypoint": "backend",
+      "root": "backend",
+      "routePrefix": "/_/backend"
+    }
+  }
+}
